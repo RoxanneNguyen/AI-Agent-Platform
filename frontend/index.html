@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Agent Platform</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="ambient">
+      <div class="app is-sidebar-collapsed" id="appShell">
+        <aside class="sidebar">
+          <div class="brand">
+            <a class="brand-mark brand-home" id="homeLink" href="/" aria-label="Home">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3.5" y="4" width="17" height="13" rx="3"></rect>
+                <path d="M8 9h8"></path>
+                <path d="M8 12h5"></path>
+              </svg>
+            </a>
+          </div>
+
+          <div class="sidebar-actions" aria-label="Sidebar actions">
+            <button class="sidebar-action" id="settingsButton" type="button" aria-label="Settings" title="Settings">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 0 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 0 1-4 0v-.2a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 0 1 0-4h.2a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3 1.7 1.7 0 0 0 1-1.5V3a2 2 0 0 1 4 0v.2a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8 1.7 1.7 0 0 0 1.5 1H21a2 2 0 0 1 0 4h-.2a1.7 1.7 0 0 0-1.5 1z"></path>
+              </svg>
+            </button>
+            <div class="lang-select" id="languageMenu" aria-label="Language">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"></circle>
+                <path d="M3 12h18"></path>
+                <path d="M12 3a14 14 0 0 1 0 18"></path>
+                <path d="M12 3a14 14 0 0 0 0 18"></path>
+              </svg>
+              <select id="languageSelect" aria-label="Language" title="Language">
+                <option value="en">English</option>
+                <option value="vi">Vietnamese</option>
+                <option value="zh-hant">Traditional Chinese</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="sidebar-bottom">
+            <div class="sidebar-info-group">
+              <button class="sidebar-action" id="employeeInfoButton" type="button" aria-label="Employee info" title="Employee info">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="8" r="3"></circle>
+                  <path d="M5 20c0-3.3 2.7-6 6-6s6 2.7 6 6"></path>
+                </svg>
+              </button>
+              <div class="info-panel">
+                <div class="info-title" data-i18n="employeeInfoTitle"></div>
+                <div class="info-detail" data-i18n="employeeInfoDetail"></div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <main class="workspace">
+          <div class="workspace-top">
+            <div class="workspace-title" data-i18n="workspaceTitle"></div>
+            <div class="tabs" id="tabs"></div>
+          </div>
+          <div class="tab-view" id="tabView"></div>
+          <div class="tab-meta" id="tabMeta"></div>
+        </main>
+
+        <aside class="assistant-panel">
+          <div class="assistant-header">
+            <div class="assistant-tabs">
+              <button class="assistant-tab is-active" type="button">
+                <span class="assistant-tab-icon" aria-hidden="true">
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 3l1.6 3.6L17.2 8l-3.6 1.6L12 13l-1.6-3.4L6.8 8l3.6-1.4L12 3z"></path>
+                    <path d="M18 5.5l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9.9-2.1z"></path>
+                  </svg>
+                </span>
+                <span data-i18n="assistantTabPrimary"></span>
+              </button>
+              <button class="assistant-tab" type="button" data-i18n="assistantTabSecondary"></button>
+            </div>
+            <button class="assistant-collapse" id="assistantCollapse" type="button" aria-label="Collapse AI Assistance" title="Collapse AI Assistance">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 6l6 6-6 6"></path>
+              </svg>
+            </button>
+          </div>
+
+          <div class="assistant-scroll" id="assistantScroll">
+            <div class="assistant-body">
+              <div class="assistant-messages" id="assistantMessages"></div>
+            </div>
+          </div>
+
+          <div class="assistant-hints" id="assistantHints">
+            <button class="composer-btn" type="button" data-i18n="assistantComposer"></button>
+            <div class="hint-title" data-i18n="assistantHintTitle"></div>
+            <div class="hint-list">
+              <button class="hint-chip" type="button" data-command-key="cmdOpenExample" data-i18n="assistantHintOpen"></button>
+              <button class="hint-chip" type="button" data-command-key="cmdBriefExample" data-i18n="assistantHintBrief"></button>
+            </div>
+          </div>
+
+          <div class="assistant-input">
+            <textarea id="assistantInput" rows="2" data-i18n-placeholder="assistantPlaceholder"></textarea>
+            <button class="send-btn" id="assistantSend" type="button" data-i18n="assistantSend"></button>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <script type="module" src="ui.js"></script>
+  </body>
+</html>
